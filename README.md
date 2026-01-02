@@ -90,6 +90,12 @@ turbo-repo-astro-starter/
 - **[Prettier](https://prettier.io/)** - Opinionated code formatter
 - **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
 
+## Roadmap / TODO
+
+- [ ] Add shadcn components and use them in components
+- [ ] Create a reusable tailwind config package
+- [ ] Create a reusable ui library
+
 ## Learn More
 
 - [Turborepo Documentation](https://turbo.build/repo/docs)
