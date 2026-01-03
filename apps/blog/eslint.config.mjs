@@ -6,7 +6,7 @@ import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import eslintConfigPrettier from "eslint-config-prettier";
 import globals from "globals";
 
-export default tseslint.config(
+export default [
   // Base configuration
   {
     ignores: ["dist", ".astro", "node_modules"],
@@ -75,4 +75,4 @@ export default tseslint.config(
 
   // Prettier compatibility (should always be last)
   eslintConfigPrettier,
-);
+];
