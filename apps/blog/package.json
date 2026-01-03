@@ -8,8 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . && astro check",
-    "check-types": "astro check",
-    "lint:all": "pnpm lint && pnpm check-types"
+    "check-types": "astro check"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.1",
