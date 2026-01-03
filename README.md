@@ -131,6 +131,7 @@ The project includes a shared UI package (`@repo/ui`) with shadcn UI components.
 - [x] Create a reusable ui library
 - [ ] Use common typescript dependency
 - [x] add pre commit hook to check if format is correct via husky
+- [ ] create reusable eslint package
 
 ## Learn More
 
