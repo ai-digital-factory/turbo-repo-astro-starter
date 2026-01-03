@@ -3,8 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "main": "astro.js",
+  "types": "astro.d.ts",
+  "exports": {
+    "./astro.js": {
+      "types": "./astro.d.ts",
+      "import": "./astro.js"
+    }
+  },
   "files": [
-    "astro.js"
+    "astro.js",
+    "astro.d.ts"
   ],
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
