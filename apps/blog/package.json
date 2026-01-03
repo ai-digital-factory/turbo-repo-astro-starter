@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . && astro check",
+    "lint": "eslint \"**/*.{js,ts,tsx,astro}\" && astro check",
     "check-types": "astro check"
   },
   "dependencies": {

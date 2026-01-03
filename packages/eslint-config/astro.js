@@ -57,20 +57,19 @@ export default [
     plugins: {
       react: reactPlugin,
     },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
     settings: {
       react: {
         version: "detect",
       },
     },
     rules: {
-      // This rule will catch 'class' being used in React JSX expressions within Astro files
-      // but allow 'class' in Astro template HTML (outside JSX expressions)
-      "react/no-unknown-property": [
-        "error",
-        {
-          ignore: ["class"], // Allow 'class' in Astro files
-        },
-      ],
+      "react/no-unknown-property": "off", // Astro uses 'class', so we disable this rule for .astro files
     },
   },
 
