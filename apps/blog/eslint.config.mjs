@@ -15,7 +15,7 @@ export default tseslint.config(
   // TypeScript configuration
   ...tseslint.configs.recommended,
 
-  // React configuration
+  // React configuration for JS/TS/TSX files
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
@@ -44,12 +44,34 @@ export default tseslint.config(
       ...reactHooksPlugin.configs.recommended.rules,
       ...jsxA11yPlugin.configs.recommended.rules,
       "react/react-in-jsx-scope": "off", // Not needed for modern React/Astro
+      "react/no-unknown-property": "error", // Catch 'class' instead of 'className' in React
     },
   },
 
   // Astro configuration
   ...eslintPluginAstro.configs.recommended,
   ...eslintPluginAstro.configs["jsx-a11y-recommended"],
+  {
+    files: ["**/*.astro"],
+    plugins: {
+      react: reactPlugin,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+    rules: {
+      // This rule will catch 'class' being used in React JSX expressions within Astro files
+      // but allow 'class' in Astro template HTML (outside JSX expressions)
+      "react/no-unknown-property": [
+        "error",
+        {
+          ignore: ["class"], // Allow 'class' in Astro files
+        },
+      ],
+    },
+  },
 
   // Prettier compatibility (should always be last)
   eslintConfigPrettier,
