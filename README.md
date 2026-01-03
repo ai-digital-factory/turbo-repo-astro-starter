@@ -72,6 +72,13 @@ turbo-repo-astro-starter/
 │       ├── src/       # Source files
 │       ├── public/    # Static assets
 │       └── package.json
+├── packages/
+│   └── ui/            # Shared UI component library (shadcn UI)
+│       ├── src/
+│       │   ├── components/ui/  # shadcn UI components
+│       │   ├── lib/            # Utility functions
+│       │   └── styles/         # Global styles
+│       └── package.json
 ├── package.json       # Root package.json with workspace scripts
 ├── turbo.json        # Turborepo configuration
 └── pnpm-workspace.yaml # pnpm workspace configuration
@@ -80,6 +87,10 @@ turbo-repo-astro-starter/
 ### Apps
 
 - **blog** - An Astro-powered blog application located in `apps/blog/`
+
+### Packages
+
+- **@repo/ui** - Shared UI component library built with shadcn UI, located in `packages/ui/`. This package contains reusable React components that can be used across all apps in the monorepo.
 
 ## Tech Stack
 
@@ -92,11 +103,34 @@ turbo-repo-astro-starter/
 - **[Prettier](https://prettier.io/)** - Opinionated code formatter
 - **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
 
+## Using shadcn UI Components
+
+The project includes a shared UI package (`@repo/ui`) with shadcn UI components. To use components in your app:
+
+1. Import components from `@repo/ui`:
+
+   ```tsx
+   import { Card } from "@repo/ui";
+   ```
+
+2. Import global styles in your app:
+
+   ```tsx
+   import "@repo/ui/globals.css";
+   ```
+
+3. To add more shadcn UI components, use the shadcn CLI in the `packages/ui` directory:
+   ```bash
+   cd packages/ui
+   npx shadcn@latest add [component-name]
+   ```
+
 ## Roadmap / TODO
 
 - [x] Add shadcn components and use them in components
+- [x] Create a reusable ui library
 - [ ] Create a reusable tailwind config package
-- [ ] Create a reusable ui library
+- [ ] Use common typescript dependency
 
 ## Learn More
 
@@ -104,4 +138,5 @@ turbo-repo-astro-starter/
 - [Astro Documentation](https://docs.astro.build/)
 - [Astro React Integration](https://docs.astro.build/en/guides/integrations-guide/react/)
 - [Astro Tailwind Integration](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+- [shadcn UI Documentation](https://ui.shadcn.com/)
 - [pnpm Documentation](https://pnpm.io/motivation)
