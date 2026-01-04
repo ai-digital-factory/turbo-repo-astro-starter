@@ -31,11 +31,20 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
       ipcRenderer.on(channel, subscription);
 
       const cleanup = () => {
+        if (options?.signal) {
+          options.signal.removeEventListener("abort", abortHandler);
+        }
         ipcRenderer.removeListener(channel, subscription);
       };
 
+      const abortHandler = () => cleanup();
+
       if (options?.signal) {
-        options.signal.addEventListener("abort", () => cleanup(), {
+        if (options.signal.aborted) {
+          cleanup();
+          return cleanup;
+        }
+        options.signal.addEventListener("abort", abortHandler, {
           once: true,
         });
       }
