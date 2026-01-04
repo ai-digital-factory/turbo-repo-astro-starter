@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -7,6 +8,24 @@ import {
 } from "@repo/ui";
 
 function App() {
+  useEffect(() => {
+    if (window.ipcRenderer) {
+      const controller = new AbortController();
+
+      window.ipcRenderer.on(
+        "main-process-message",
+        (message) => {
+          console.log(message);
+        },
+        { signal: controller.signal },
+      );
+
+      return () => {
+        controller.abort();
+      };
+    }
+  }, []);
+
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-background p-4">
       <Card className="w-[450px]">
