@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . && astro check",
+    "lint": "eslint . && astro check && astro build",
     "check-types": "astro check",
     "deploy": "pnpm run build && wrangler pages deploy"
   },
