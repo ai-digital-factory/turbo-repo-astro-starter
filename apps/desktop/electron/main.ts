@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from "electron";
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,8 +28,14 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 let win: BrowserWindow | null;
 
 function createWindow() {
+  const fallbackDir = path.join(__dirname, "..", "public");
+  const iconPath = path.join(
+    process.env.VITE_PUBLIC || fallbackDir,
+    "favicon.svg",
+  );
+
   win = new BrowserWindow({
-    icon: path.join(process.env.VITE_PUBLIC || "", "favicon.svg"),
+    ...(fs.existsSync(iconPath) ? { icon: iconPath } : {}),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
