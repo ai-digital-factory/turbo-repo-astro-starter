@@ -443,6 +443,9 @@ while IFS= read -r -d '' notebook_file; do
         done
         css_rel_path="${css_rel_path}custom.css"
         
+        # Calculate relative path to index.html
+        index_rel_path="${css_rel_path%custom.css}index.html"
+        
         echo "  Inserting CSS link..."
         # Insert CSS link in the head section (using temp file approach for portability)
         awk -v css="$css_rel_path" '{
@@ -454,9 +457,9 @@ while IFS= read -r -d '' notebook_file; do
         
         echo "  Adding container div..."
         # Add container div around body content and back button (using awk for portability)
-        awk '{
+        awk -v index_path="$index_rel_path" '{
             if (match($0, /<body[^>]*>/)) {
-                sub(/<body[^>]*>/, "<body class=\"jp-Notebook\" data-jp-theme-light=\"true\" data-jp-theme-name=\"JupyterLab Light\">\n<a href=\"../index.html\" class=\"back-button\">← Back to Index</a>\n<div class=\"container\">")
+                sub(/<body[^>]*>/, sprintf("<body class=\"jp-Notebook\" data-jp-theme-light=\"true\" data-jp-theme-name=\"JupyterLab Light\">\n<a href=\"%s\" class=\"back-button\">← Back to Index</a>\n<div class=\"container\">", index_path))
             }
             if (match($0, /<\/body>/)) {
                 sub(/<\/body>/, "</div>\n</body>")
@@ -665,4 +668,4 @@ echo "📁 HTML files saved to: $DIST_PATH"
 echo "🌐 Open $DIST_PATH/index.html in your browser to navigate the notebooks"
 echo ""
 echo "💡 To run this script again in the future:"
-echo "   cd $SCRIPT_DIR && ./convert-notebooks.sh"
+echo "   cd $SCRIPT_DIR && ./convert-notebook-to-html.sh"

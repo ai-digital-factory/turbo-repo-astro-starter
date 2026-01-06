@@ -7,5 +7,7 @@
     "deploy": "pnpm run build && wrangler pages deploy"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^4.54.0"
+  }
 }
