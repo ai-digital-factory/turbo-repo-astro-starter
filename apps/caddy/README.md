@@ -16,8 +16,8 @@ Caddy is configured to act as a reverse proxy for the following domains:
 
 | Domain | Backend Service |
 | :--- | :--- |
-| `convex-dashboard.reelfreakz.com` | Proxies to `dashboard:6791` |
-| `convex-backend.reelfreakz.com` | Proxies to `backend:3210` |
+| `starter-convex-dashboard.reelfreakz.com` | Proxies to `dashboard:6791` |
+| `starter-convex-backend.reelfreakz.com` | Proxies to `backend:3210` |
 
 ## 🚀 Running Caddy
 
@@ -39,7 +39,7 @@ To route traffic correctly, you must configure the following **A records** in yo
 
 | Type | Name | Content | Proxy Status | TTL |
 | :--- | :--- | :--- | :--- | :--- |
-| `A` | `convex-backend` | `122.166.57.113` | DNS only | Auto |
-| `A` | `convex-dashboard` | `122.166.57.113` | DNS only | Auto |
+| `A` | `starter-convex-backend` | `122.166.57.113` | DNS only | Auto |
+| `A` | `starter-convex-dashboard` | `122.166.57.113` | DNS only | Auto |
 
 > **Note:** Set the Proxy Status to **DNS only** (Grey Cloud) to allow Caddy to manage SSL certificates automatically.
