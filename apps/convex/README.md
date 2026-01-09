@@ -28,12 +28,12 @@ convex-self-hosted|xxx
 
 When prompted by the dashboard, use the following details:
 
-- **Deployment URL**: `https://convex-backend.reelfreakz.com`
+- **Deployment URL**: `https://starter-convex-backend.reelfreakz.com`
 - **Admin Key**: The key you generated above.
 
 ## 🌐 Important URLs
 
 | Service | URL |
 | :--- | :--- |
-| **Dashboard** | [https://convex-dashboard.reelfreakz.com/](https://convex-dashboard.reelfreakz.com/) |
-| **Backend** | [https://convex-backend.reelfreakz.com](https://convex-backend.reelfreakz.com) |
+| **Dashboard** | [https://starter-convex-dashboard.reelfreakz.com/](https://starter-convex-dashboard.reelfreakz.com/) |
+| **Backend** | [https://starter-convex-backend.reelfreakz.com](https://starter-convex-backend.reelfreakz.com) |
