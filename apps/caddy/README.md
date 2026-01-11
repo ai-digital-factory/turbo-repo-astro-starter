@@ -4,7 +4,13 @@ This folder contains the Caddy configuration used to route traffic to the Convex
 
 ## 🛠️ Prerequisites
 
-Before starting the Caddy service, you **must** create the external Docker network used by all services in this project:
+Before starting the Caddy service, ensure you have:
+
+- **Docker with Compose V2**
+  - **Docker Desktop** includes Compose V2 by default.
+  - **Linux users** must ensure the `docker compose` command is available (not just `docker-compose`).
+
+You **must** also create the external Docker network used by all services in this project:
 
 ```bash
 docker network create turborepo-astro-starter-network
