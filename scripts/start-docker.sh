@@ -5,7 +5,7 @@ set -e
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 NETWORK_NAME="turborepo-astro-starter-network"
-if ! docker network ls | grep -q "$NETWORK_NAME"; then
+if ! docker network inspect "$NETWORK_NAME" >/dev/null 2>&1; then
   echo "Creating network: $NETWORK_NAME..."
   docker network create "$NETWORK_NAME"
 fi
