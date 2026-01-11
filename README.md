@@ -23,6 +23,10 @@ Before you begin, ensure you have the following installed:
 
 - **Node.js** >= 22
 - **pnpm** 9.0.0 (or compatible version)
+- **Docker with Compose V2** - Required for backend and infrastructure services.
+  - The `scripts/start-docker.sh` script invokes the V2 CLI via `docker compose`.
+  - **Docker Desktop** includes Compose V2 by default.
+  - **Linux users** must ensure the `docker compose` command is available (not just `docker-compose`).
 - **Jupyter** (for notebook conversion) - `pip install jupyter`
 
 ## Getting Started

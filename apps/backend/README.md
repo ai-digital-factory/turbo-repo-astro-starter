@@ -7,6 +7,14 @@ This folder contains the configuration and documentation for running a self-host
 - **Self-Hosted Guide**: [Convex Backend README](https://github.com/get-convex/convex-backend/blob/main/self-hosted/README.md)
 - **Docker Configuration**: [Official docker-compose.yml](https://github.com/get-convex/convex-backend/tree/main/self-hosted/docker/docker-compose.yml)
 
+## 🛠️ Prerequisites
+
+Before starting the backend service, ensure you have:
+
+- **Docker with Compose V2**
+  - **Docker Desktop** includes Compose V2 by default.
+  - **Linux users** must ensure the `docker compose` command is available (not just `docker-compose`).
+
 ## 🔑 Generating Admin Key
 
 To log into the dashboard, you must generate an admin key from the backend service:
